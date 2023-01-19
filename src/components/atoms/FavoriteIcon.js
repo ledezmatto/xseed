@@ -1,12 +1,14 @@
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 
 const FavoriteIcon = (props) => {
-  const { isFavorite } = props;
+  const { isFavorite, onClick } = props;
 
   if (isFavorite) {
-    return <Favorite className="align-self-center opal" />;
+    return <Favorite onClick={onClick} className="align-self-center opal" />;
   } else {
-    return <FavoriteBorder className="align-self-center opal" />;
+    return (
+      <FavoriteBorder onClick={onClick} className="align-self-center opal" />
+    );
   }
 };
 
