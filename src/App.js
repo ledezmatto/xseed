@@ -1,14 +1,21 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "pages/ErrorPage";
+import { Routes, Route } from "react-router-dom";
 import CharacterPage from "pages/Characters";
 import FavoritePage from "pages/Favorites";
 
+import Sidebar from "components/molecules/SideBar";
+
 function App() {
-  const router = createBrowserRouter([
-    { path: "", element: <CharacterPage />, errorElement: <ErrorPage /> },
-    { path: "/favorites", element: <FavoritePage /> },
-  ]);
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <Sidebar />
+      <div className="blackBackground">
+        <Routes>
+          <Route path="/" exact element={<CharacterPage />} />
+          <Route path="/favorites" element={<FavoritePage />} />
+        </Routes>
+      </div>
+    </>
+  );
 }
 
 export default App;
